@@ -12,6 +12,14 @@ import express from "express";
 const app = express();
 
 connectDB()
+.then(() => {
+    app.listen(process.env.PORT || 8000,() =>{
+        console.log(`server is running on the port ${process.env.PORT}`);
+    });
+})
+.catch((err) =>{
+    console.log("MongoDB connection failed !!!" , err);
+})
 
 
 
